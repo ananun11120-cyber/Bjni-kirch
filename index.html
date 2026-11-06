@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Բջնիի կիրճի, ամրոցի և պատմական հուշարձանների մասին ինտերակտիվ ուղեցույց։">
+  <title>Բջնիի կիրճ | Պատմություն և բնություն</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#202820;--muted:#6d766c;--cream:#f3f0e7;--paper:#faf9f5;--green:#334b3c;--gold:#c9a66b;--serif:"Noto Serif Armenian",Georgia,serif;--sans:"Manrope",Arial,sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75}
+a{color:inherit;text-decoration:none}
+.site-header{height:82px;padding:0 7vw;display:flex;align-items:center;justify-content:space-between;background:rgba(250,249,245,.96);position:sticky;top:0;z-index:10;border-bottom:1px solid #e8e5dc;backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.13em;font-size:13px}
+.brand small{display:block;font-size:8px;letter-spacing:.2em;color:#879084;font-weight:600;margin-top:2px}
+.brand-mark{width:37px;height:37px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-family:var(--serif);font-size:21px}
+nav{display:flex;align-items:center;gap:32px;font-size:11px;font-weight:700;color:#4e594f}
+nav a{transition:.2s}nav a:hover{color:#a27c43}.nav-cta{border:1px solid #b99a68;padding:10px 17px;color:#765a32}
+.menu-toggle{display:none;background:none;border:0;font-size:25px;color:var(--green)}
+.hero{min-height:690px;height:calc(100vh - 82px);max-height:850px;position:relative;background-color:#344638;background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_14.jpg?width=1600");background-position:center 48%;background-size:cover;background-repeat:no-repeat;display:flex;align-items:center;color:#fff}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,25,18,.83) 0%,rgba(16,29,21,.56) 48%,rgba(14,24,19,.12) 100%)}
+.hero-content{position:relative;margin-left:12vw;max-width:650px;padding:70px 25px 70px 0}
+.eyebrow{font-size:10px;letter-spacing:.22em;font-weight:800;color:#d8c49e;display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.eyebrow span{width:25px;height:1px;background:var(--gold)}
+.hero h1{font:600 clamp(40px,5.6vw,76px)/1.32 var(--serif);letter-spacing:-.04em}
+h1 em,h2 em{font-weight:400;color:#cbb184}
+.hero-lead{max-width:510px;color:#e1e5dc;font-size:14px;margin:25px 0 34px;line-height:2}
+.primary-btn{display:inline-flex;align-items:center;gap:28px;background:#c4a16a;color:#17251b;padding:15px 21px;font-size:11px;font-weight:800;letter-spacing:.03em;transition:.25s}
+.primary-btn:hover{background:#e0c18d;transform:translateY(-2px)}.primary-btn span{font-size:17px}
+.hero-note{position:absolute;bottom:36px;left:7vw;display:flex;align-items:center;gap:13px;color:#e3e4dc;font-size:10px;letter-spacing:.12em}
+.note-line{width:45px;height:1px;background:#c4a16a}.hero-index{position:absolute;right:7vw;bottom:34px;font-size:10px;letter-spacing:.2em;color:#e6e3d9}
+.section{padding:115px 12vw}.section-kicker{font-size:10px;letter-spacing:.22em;font-weight:800;color:#a27c43;margin-bottom:44px}
+.intro-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:9vw}
+h2{font:600 clamp(30px,3.6vw,48px)/1.55 var(--serif);letter-spacing:-.035em}
+h2 em{color:#9c8054}
+.intro-copy{padding-top:7px;color:#5e695f;font-size:13px}.intro-copy p+p{margin-top:17px}
+.fact-row{display:flex;gap:35px;border-top:1px solid #dedbd1;margin-top:38px;padding-top:22px}
+.fact-row strong{display:block;font:600 16px var(--serif);color:var(--green)}.fact-row span{font-size:9px;color:#8b9287}
+.history{background:#263b30;color:#f5f1e8;position:relative;overflow:hidden}
+.history:after{content:"Բ";position:absolute;font:500 480px var(--serif);right:1vw;top:10px;color:rgba(255,255,255,.025);pointer-events:none}
+.light{color:#cdb487}.history-heading{display:flex;justify-content:space-between;gap:50px;align-items:end;margin-bottom:65px}
+.history-heading h2 em{color:#cdb487}.history-heading>p{max-width:360px;color:#c0c9bf;font-size:12px;line-height:2}
+.timeline{max-width:850px;margin-left:8%;border-left:1px solid #718174}
+.timeline-item{display:grid;grid-template-columns:155px 1fr;gap:35px;padding:0 0 40px 30px;position:relative}
+.timeline-item:before{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:#c5a36d;left:-4.5px;top:10px;box-shadow:0 0 0 5px rgba(197,163,109,.13)}
+.time{font-size:11px;color:#d1b27d;letter-spacing:.08em;padding-top:3px}.timeline-item h3{font:500 19px var(--serif);margin-bottom:8px}.timeline-item p{font-size:12px;color:#c2ccc2;max-width:570px;line-height:2}
+.feature-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:8vw;align-items:center}
+.feature-image{position:relative}.feature-image img{width:100%;height:520px;object-fit:cover;display:block}.image-caption{position:absolute;bottom:0;left:0;background:#263b30;color:white;padding:12px 18px;font-size:10px;letter-spacing:.08em}
+.eyebrow.dark{color:#9d8054}.feature-copy p:not(.eyebrow),.church-copy>p:not(.eyebrow){font-size:13px;color:#667066;line-height:2;margin-top:19px}
+.mini-fact{display:flex;align-items:center;gap:18px;border-top:1px solid #dedbd1;margin-top:30px;padding-top:20px;color:#7b8479;font-size:10px}
+.mini-number{font:600 24px var(--serif);color:#a18355}
+.church{background:#eae8de;display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center}
+.church-image img{width:100%;height:420px;object-fit:cover;display:block}
+.text-link{display:inline-flex;gap:20px;margin-top:27px;color:#8b6a3e;font-size:11px;font-weight:800;border-bottom:1px solid #c3a778;padding-bottom:7px}
+.river{background:#263b30;color:#f5f1e8;display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center}
+.river-image img{width:100%;height:390px;object-fit:cover;display:block}.river-copy h2 em{color:#cdb487}.river-copy>p:not(.eyebrow){font-size:13px;color:#c5cec4;line-height:2;margin-top:19px}
+.gallery-title{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}.gallery-title p{font-size:12px;color:#81897f}
+.gallery-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}.gallery-grid figure{position:relative;overflow:hidden;background:#d9d8d0}.gallery-grid img{width:100%;height:290px;object-fit:cover;display:block;transition:transform .6s}.gallery-grid figure:hover img{transform:scale(1.04)}.gallery-grid .gallery-large img{height:420px}.gallery-grid figcaption{position:absolute;bottom:0;left:0;right:0;padding:35px 17px 14px;color:white;font-size:10px;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.photo-note{font-size:10px;color:#92988e;margin-top:15px}
+.visit{background:linear-gradient(90deg,rgba(24,42,31,.95),rgba(24,42,31,.72)),url("https://hushardzan.am/wp-content/uploads/2023/09/bjni.jpg") center/cover;color:white;text-align:center}
+.visit-inner{max-width:690px;margin:auto}.visit h2 em{color:#d2b98e}.visit-inner>p:not(.eyebrow){font-size:13px;color:#d2d9d0;line-height:2;margin:22px 0 30px}.visit .eyebrow{justify-content:center}
+.light-btn{background:#d1b17d}
+footer{padding:55px 12vw 30px;background:#1d2d24;color:#d6ddd4;display:grid;grid-template-columns:1fr 1fr;gap:20px 60px}
+.footer-brand{align-self:start;color:#fff}footer>p{font-size:11px;color:#aab6aa;max-width:330px}.sources{grid-column:1/-1;display:flex;gap:18px;flex-wrap:wrap;border-top:1px solid #405146;padding-top:22px;font-size:10px;color:#b8c1b7}.sources strong{width:100%;color:#d8c49e;letter-spacing:.08em}.sources a:hover{color:#e0c18d}.copyright{grid-column:1/-1;border-top:1px solid #405146;padding-top:18px;color:#7f8d81;font-size:9px;letter-spacing:.1em}
+#toTop{position:fixed;right:25px;bottom:25px;width:42px;height:42px;border:0;background:#c5a36d;color:#1c2a20;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:.25s;z-index:8}#toTop.visible{opacity:1;pointer-events:auto}
+@media(max-width:900px){.site-header{padding:0 5vw}nav{gap:16px}.section{padding:85px 8vw}.hero-content{margin-left:9vw}.intro-grid,.feature-grid,.church,.river{gap:5vw}.feature-image img{height:430px}}
+@media(max-width:700px){.site-header{height:70px}.menu-toggle{display:block}nav{display:none;position:absolute;top:70px;left:0;right:0;background:var(--paper);padding:20px 7vw 28px;flex-direction:column;align-items:flex-start;gap:18px;border-bottom:1px solid #e4e0d6}nav.open{display:flex}.hero{height:690px;min-height:620px;background-position:58% center}.hero-content{margin-left:7vw;padding-right:7vw}.hero h1{font-size:43px}.hero-lead{font-size:12px}.section{padding:72px 7vw}.intro-grid,.feature-grid,.church,.river{grid-template-columns:1fr;gap:35px}.intro-grid{gap:24px}.history-heading,.gallery-title{display:block}.history-heading>p,.gallery-title p{margin-top:20px}.timeline{margin-left:0}.timeline-item{grid-template-columns:95px 1fr;gap:16px;padding-left:20px}.timeline-item h3{font-size:16px}.timeline-item p{font-size:11px}.feature-image{order:2}.feature-copy{order:1}.feature-image img,.church-image img,.river-image img{height:300px}.church-copy{order:1}.church-image{order:2}.river-image{order:2}.river-copy{order:1}.gallery-grid{grid-template-columns:1fr 1fr;gap:10px}.gallery-grid .gallery-large{grid-column:1/-1}.gallery-grid img,.gallery-grid .gallery-large img{height:220px}.gallery-grid .gallery-large img{height:280px}.fact-row{gap:18px;justify-content:space-between}.fact-row strong{font-size:13px}.fact-row span{font-size:8px}footer{padding:45px 7vw 25px;grid-template-columns:1fr;gap:17px}.sources{grid-column:1;gap:13px;flex-direction:column}.copyright{grid-column:1}.hero-note{left:7vw}.hero-index{right:7vw}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}.reveal.revealed{opacity:1;transform:translateY(0)}
+
+
+/* Updated visual identity: forest green, limestone, terracotta and antique gold */
+:root{
+ --ink:#20291f;--muted:#72796b;--cream:#f0eadc;--paper:#fbf8f0;
+ --green:#263f32;--gold:#c79a55;--serif:"Noto Serif Armenian",Georgia,serif;
+ --sans:"Manrope",Arial,sans-serif;
+}
+body{background:var(--paper)}
+.site-header{background:rgba(251,248,240,.97);border-bottom-color:#e1d8c6}
+.brand-mark{background:#263f32;color:#e2c18b;border:0}
+nav a:hover{color:#ad7547}
+.nav-cta{border-color:#c79a55;color:#79572f}
+.hero{background-color:#344638}
+.hero-shade{background:linear-gradient(90deg,rgba(19,34,25,.88),rgba(28,43,31,.58) 52%,rgba(26,37,29,.08))}
+.hero h1 em{color:#e0bd83}
+.primary-btn{background:#d0a96d;color:#20291f;box-shadow:0 10px 30px rgba(15,25,18,.15)}
+.primary-btn:hover{background:#e0c28e}
+.intro{background:linear-gradient(135deg,#fbf8f0 0%,#f1eadb 100%)}
+.fact-row strong{color:#345440}
+.history{background:linear-gradient(135deg,#59483d 0%,#75604d 55%,#463b33 100%)}
+.timeline-item:before{background:#d0a96d}
+.feature-image img,.church-image img,.river-image img,.gallery-grid img{filter:saturate(1.06) contrast(1.02)}
+.feature-image{padding:12px;background:#e7ddc9;box-shadow:18px 18px 0 #d4c09c}
+.feature-image img{height:500px}
+.mini-number{color:#a56d3e}
+.church{background:linear-gradient(120deg,#e7dfd2,#f5f0e7)}
+.church-image{position:relative;padding:12px;border:1px solid #c7b18d}
+.church-image:after{content:"ԲՋՆԻ · 1031";position:absolute;right:-12px;bottom:-12px;background:#ad7657;color:#fff;padding:10px 16px;font-size:9px;letter-spacing:.18em}
+.river{background:linear-gradient(120deg,#59483d,#75604d)}
+.river-image{position:relative}
+.river-image:before{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid #b99866;pointer-events:none}
+.gallery{background:#fbf8f0}
+.gallery-grid{grid-template-columns:1.35fr 1fr 1fr;grid-auto-rows:minmax(220px,auto)}
+.gallery-grid figure{border:5px solid #eee6d7;box-shadow:0 12px 28px rgba(39,48,36,.08)}
+.gallery-grid img{height:270px}
+.gallery-grid .gallery-large img{height:390px}
+.gallery-grid figure:nth-child(2){transform:translateY(22px)}
+.gallery-grid figure:nth-child(4){transform:translateY(-16px)}
+.gallery-grid figcaption{background:linear-gradient(transparent,rgba(25,39,29,.82));font-size:11px}
+.photo-note{margin-top:35px}
+.visit{background-color:#263f32;background-image:linear-gradient(90deg,rgba(29,51,38,.96),rgba(29,51,38,.78)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_overview.JPG?width=1600")}
+.visit h2 em{color:#e0bd83}
+.light-btn{background:#d0a96d}
+footer{background:#303d33}
+.sources a{color:#d4c4a3}
+.sources a:hover{color:#fff}
+#toTop{background:#c79a55;border-radius:50%;box-shadow:0 5px 20px rgba(0,0,0,.2)}
+@media(max-width:700px){
+ .feature-image{box-shadow:10px 10px 0 #d4c09c}
+ .feature-image img{height:300px}
+ .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+ .gallery-grid figure:nth-child(2),.gallery-grid figure:nth-child(4){transform:none}
+ .gallery-grid .gallery-large img{height:260px}
+ .gallery-grid img{height:190px}
+ .church-image:after{right:0;bottom:0}
+ .river-image:before{inset:8px -8px -8px 8px}
+}
+
+
+/* Final palette balance: sage accents, warm stone surfaces, restrained forest greens */
+:root{--ink:#302b25;--muted:#777066;--cream:#f1e7d8;--paper:#fbf6ed;--green:#665247;--gold:#b87945}
+.site-header{background:rgba(248,245,238,.97)}
+.brand-mark{background:#665247;color:#f0d5ad}
+.history{background:linear-gradient(135deg,#59483d,#75604d 55%,#463b33)}
+.river{background:linear-gradient(120deg,#59483d,#75604d)}
+.history .timeline-item p,.river-copy>p:not(.eyebrow){color:#e0e4dc}
+.intro{background:linear-gradient(135deg,#f8f5ee,#eee7db)}
+.feature-image{background:#e5d9c6;box-shadow:14px 14px 0 #d2bea0}
+.church{background:linear-gradient(120deg,#e7dfd2,#f5f0e7)}
+.visit{background-color:#59483d}
+.primary-btn,.light-btn{background:#c69a64}
+.nav-cta,.text-link{color:#936a43}
+@media(max-width:700px){.feature-image{box-shadow:8px 8px 0 #d2bea0}}
+
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Բջնիի կիրճ՝ գլխավոր էջ">
+      <span class="brand-mark">Բ</span><span>ԲՋՆԻ <small>ԿԻՐՃԻ ՊԱՏՄՈՒԹՅՈՒՆԸ</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Բացել ընտրացանկը">☰</button>
+    <nav id="nav">
+      <a href="#about">Կիրճի մասին</a>
+      <a href="#history">Պատմություն</a>
+      <a href="#heritage">Հուշարձաններ</a>
+      <a href="#gallery">Պատկերասրահ</a>
+      <a href="#visit" class="nav-cta">Այցելել Բջնի</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> ԿՈՏԱՅՔԻ ՄԱՐԶ · ՀԱՅԱՍՏԱՆ</p>
+        <h1>Բջնիի կիրճը՝<br><em>քարերի մեջ պահված</em><br>պատմություն</h1>
+        <p class="hero-lead">Այստեղ Հրազդան գետի հոսքը, ժայռերը և միջնադարյան ամրոցի ավերակները պատմում են դարերի անցած ճանապարհի մասին։</p>
+        <a class="primary-btn" href="#about">Բացահայտել պատմությունը <span>↓</span></a>
+      </div>
+      <div class="hero-note"><span class="note-line"></span><span>Բջնի · Հրազդանի կիրճ</span></div>
+      <div class="hero-index">01 / 05</div>
+    </section>
+
+    <section class="intro section" id="about">
+      <div class="section-kicker">01 — ՎԱՅՐԸ</div>
+      <div class="intro-grid">
+        <div>
+          <h2>Մի վայր, որտեղ<br><em>բնությունն ու պատմությունը</em><br>միահյուսված են</h2>
+        </div>
+        <div class="intro-copy">
+          <p>Բջնին գտնվում է Կոտայքի մարզում՝ Հրազդան գետի հովտում։ Գյուղի շրջակայքի ժայռոտ լանջերը, կանաչապատ հատվածներն ու գետի կիրճը ստեղծում են Հայաստանի բնաշխարհին բնորոշ, բայց յուրահատուկ տեսարան։</p>
+          <p>Բջնիի անունը հատկապես կապվում է միջնադարյան ամրոցի և Սուրբ Աստվածածին եկեղեցու հետ։ Այս հուշարձանները հիշեցնում են, որ կիրճը միայն բնական տարածք չէ. այն նաև պատմական կարևոր միջավայր է եղել։</p>
+          <p>Երբ քայլում ես գյուղի հին ճանապարհներով, պատմությունը կարծես բացվում է շերտ առ շերտ։ Քարե պատերի լռությունը, բարձունքից երևացող գետի ոլորանը և եկեղեցու հին վիմագրերը մի ամբողջ պատմություն են հուշում՝ մարդկանց, հավատքի և պաշտպանական կյանքի մասին։</p>
+          <p>Բջնիի գեղեցկությունը հենց հակադրության մեջ է. մի կողմում՝ ժայռերի խստությունը, մյուսում՝ ծառերի մեղմ կանաչը, իսկ դրանց միջև՝ դարերով կանգուն մնացած մարդկային ստեղծագործությունը։</p>
+          <div class="fact-row">
+            <div><strong>Կոտայք</strong><span>Մարզ</span></div>
+            <div><strong>Հրազդան</strong><span>Գետ</span></div>
+            <div><strong>Միջնադար</strong><span>Պատմական ժառանգություն</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history section" id="history">
+      <div class="section-kicker light">02 — ԺԱՄԱՆԱԿԱԳՐՈՒԹՅՈՒՆ</div>
+      <div class="history-heading">
+        <h2>Դարերի միջով՝<br><em>Բջնիի պատմությունը</em></h2>
+        <p>Բջնին հիշատակվել է դեռևս վաղ միջնադարյան գրավոր աղբյուրներում, իսկ հետագա դարերում դարձել է պաշտպանական և հոգևոր կարևոր կենտրոն։</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="time">V դար</span>
+          <div><h3>Առաջին հիշատակություն</h3><p>Պատմիչ Ղազար Փարպեցին Բջնին հիշատակում է իր աշխատության մեջ՝ որպես նշանավոր բնակավայր։</p></div>
+        </article>
+        <article class="timeline-item">
+          <span class="time">IX–X դարեր</span>
+          <div><h3>Ամրոցի վերակառուցում</h3><p>Պահլավունիների իշխանական տան օրոք հին ամրոցը վերաշինվում և վերածվում է տարածաշրջանի կարևոր պաշտպանական հենակետի։</p></div>
+        </article>
+        <article class="timeline-item">
+          <span class="time">1031 թ.</span>
+          <div><h3>Սուրբ Աստվածածին եկեղեցի</h3><p>Գրիգոր Մագիստրոս Պահլավունու հովանավորությամբ կառուցվում է Սուրբ Աստվածածին եկեղեցին։ Բջնին դառնում է եպիսկոպոսական կենտրոն։ Այդ ժամանակաշրջանում ամրոցն ու եկեղեցին միասին արտահայտում էին իշխանական ուժն ու հոգևոր կյանքը։</p></div>
+        </article>
+        <article class="timeline-item">
+          <span class="time">XII–XVII դդ.</span>
+          <div><h3>Գրչության և հոգևոր կյանքի կենտրոն</h3><p>Բջնիում ընդօրինակվել են ձեռագրեր, իսկ վանքը շարունակել է իր հոգևոր ու մշակութային գործունեությունը։</p></div>
+        </article>
+        <article class="timeline-item">
+          <span class="time">XX–XXI դդ.</span>
+          <div><h3>Հնագիտական ուսումնասիրություններ</h3><p>Ամրոցի տարածքում իրականացվել են պեղումներ և ամրակայման աշխատանքներ՝ բացահայտելով կառույցների տարբեր շերտերը։</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="fortress section" id="heritage">
+      <div class="section-kicker">03 — ՃԱՐՏԱՐԱՊԵՏԱԿԱՆ ԺԱՌԱՆԳՈՒԹՅՈՒՆ</div>
+      <div class="feature-grid">
+        <div class="feature-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_14.jpg?width=1600" data-fallbacks="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_01.jpg?width=1400|https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_village%2C_Armenia.jpg?width=1400" alt="Բջնիի ամրոցի քարե աշտարակներն ու պարիսպները" loading="lazy" referrerpolicy="no-referrer">
+          <span class="image-caption">Բջնիի միջնադարյան ամրոց</span>
+        </div>
+        <div class="feature-copy">
+          <p class="eyebrow dark">ՊԱՀԼԱՎՈՒՆԻՆԵՐԻ ԱՄՐՈՑԸ</p>
+          <h2>Քարե պաշտպանություն՝<br><em>ժայռերի գագաթին</em></h2>
+          <p>Բջնիի ամրոցը գտնվում է գյուղի արևելյան կողմում՝ Հրազդան գետի աջ ափին բարձրացող հրվանդանի վրա։ Նրա բնական դիրքը՝ զառիթափ ժայռերն ու խոր ձորերը, ամրոցին պաշտպանական առավելություն են տվել։</p>
+          <p>Ամրոցը բաղկացած է Վերին և Ստորին հատվածներից։ Տարածքում պահպանվել են պարիսպների ու աշտարակների մասեր, Սուրբ Խաչ եկեղեցու և այլ շինությունների հիմքեր, ջրամբար ու գաղտնուղու հատված։ Պաշտպանական կառույցների տեղադրությունը թույլ է տալիս պատկերացնել, թե ինչպես էին դիտարկում կիրճի անցումները և վերահսկում շրջակա տարածքը։</p>
+          <p>Այսօր ամրոցից մնացած քարերը ոչ միայն անցյալի վկաներ են, այլև լանդշաֆտի մաս։ Դրանց կողքին կանգնելիս կարելի է նկատել՝ որքան ճշգրիտ էր ընտրված բարձրադիր դիրքը և որքան սերտ էր կառույցը կապված բնական ռելիեֆի հետ։</p>
+          <div class="mini-fact"><span class="mini-number">X–XVII</span><span>Ամրոցի հիմնական պատմական ժամանակաշրջանը</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="church section">
+      <div class="church-copy">
+        <p class="eyebrow dark">ՀՈԳԵՎՈՐ ԺԱՌԱՆԳՈՒԹՅՈՒՆ</p>
+        <h2>Սուրբ Աստվածածին<br><em>եկեղեցի</em></h2>
+        <p>1031 թվականին կառուցված Սուրբ Աստվածածին եկեղեցին Բջնիի ամենահայտնի հուշարձաններից է։ Այն կապված է Գրիգոր Մագիստրոս Պահլավունու անվան հետ և միջնադարում ունեցել է եպիսկոպոսական կենտրոնի նշանակություն։</p>
+        <p>Եկեղեցու տարածքում պահպանվել են խաչքարեր և վիմագրական հիշատակություններ, որոնք արժեքավոր տեղեկություններ են հաղորդում անցյալի մասին։ Քարե զարդաքանդակներն ու հին արձանագրությունները այցելուին մոտեցնում են այն ժամանակների վարպետներին, ովքեր իրենց հավատքն ու հիշողությունը փոխանցել են քարի վրա։</p>
+        <p>Եկեղեցու շուրջը տիրող խաղաղությունը լրացնում է նրա ճարտարապետությունը։ Այստեղ կարելի է մի պահ կանգ առնել, ուսումնասիրել մանրամասները և զգալ, թե ինչպես է պատմական հուշարձանը շարունակում ապրել գյուղի առօրյայի մեջ։</p>
+        <a class="text-link" href="https://armeniahiddengems.aua.am/hy/monument/st-astvatsatsin-church/" target="_blank" rel="noopener">Կարդալ ավելին <span>↗</span></a>
+      </div>
+      <div class="church-image">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Holy_Mother_of_God_Church%2C_Bjni%2C_Armenia_101.jpg?width=1400" data-fallbacks="https://commons.wikimedia.org/wiki/Special:FilePath/Holy_Mother_of_God_Church%2C_Bjni%2C_Armenia_93.jpg?width=1200|https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_village%2C_Armenia.jpg?width=1400" alt="Բջնիի Սուրբ Աստվածածին եկեղեցի" loading="lazy" referrerpolicy="no-referrer">
+      </div>
+    </section>
+
+    <section class="river section">
+      <div class="river-image">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_overview.JPG?width=1600" data-fallbacks="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_village%2C_Armenia.jpg?width=1400|https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_14.jpg?width=1600" alt="Բջնիի բնապատկերը" loading="lazy" referrerpolicy="no-referrer">
+      </div>
+      <div class="river-copy">
+        <p class="eyebrow light">ԲՆԱԿԱՆ ՄԻՋԱՎԱՅՐ</p>
+        <h2>Հրազդանի կիրճի<br><em>ուժն ու լռությունը</em></h2>
+        <p>Հրազդան գետը ձևավորել է այս տարածքի բնապատկերը։ Գետի հովիտը, ժայռային ելքերը և բուսականությամբ ծածկված լանջերը միասին ստեղծում են կիրճի առանձնահատուկ միջավայրը։</p>
+        <p>Բջնիի ամրոցից բացվող տեսարանը միավորում է պատմական կառույցն ու բնությունը՝ ցույց տալով, թե որքան սերտ են դրանք կապված։ Տարվա տարբեր եղանակներին կիրճի գույները փոխվում են. գարնանը լանջերը թարմանում են, ամռանը արևը ընդգծում է ժայռերի երանգները, իսկ աշնանը բնությունը դառնում է ավելի մեղմ ու ոսկեգույն։</p>
+        <p>Գետի ձայնը և բարձրադիր լանջերի բաց տարածությունը ստեղծում են հանգիստ մթնոլորտ։ Բջնիի կիրճը հիշեցնում է, որ բնությունը պարզապես շրջապատ չէ, այլ պատմության շարունակական մասնակիցը։</p>
+      </div>
+    </section>
+
+
+    <section class="section" id="full-story" style="background:#f1e7d8">
+      <div class="section-kicker">ԼՐԱՑՈՒՑԻՉ ԳԼՈՒԽ — ԲՋՆԻԻ ԱՄԲՈՂՋԱԿԱՆ ՊԱՏՄՈՒԹՅՈՒՆԸ</div>
+      <h2>Կիրճի ճանապարհով՝<br><em>դեպի անցյալի հիշողությունը</em></h2>
+      <div style="max-width:900px;margin:32px auto 0;color:#62584e;font-size:14px;line-height:2.15">
+        <p>Բջնիի պատմությունը սկսվում է այն միջավայրից, որտեղ մարդը և բնությունը երկար ժամանակ ապրել են կողք կողքի։ Հրազդան գետի հովիտը, ժայռոտ բարձունքները և լանջերի բնական պաշտպանությունը բնակավայրին տվել են առանձնահատուկ դիրք։ Գյուղի շուրջը տարածվող կիրճը միաժամանակ ճանապարհ էր, տեսադաշտ և պաշտպանական սահման։ Այստեղ բնության ձևերը ոչ միայն գեղեցկություն են ստեղծել, այլև ազդել են մարդկանց կյանքի ու բնակավայրի զարգացման վրա։</p>
+        <p>Վաղ միջնադարում Բջնին արդեն հիշատակվում էր գրավոր աղբյուրներում։ Այդ հիշատակությունները վկայում են, որ բնակավայրը կարևոր տեղ ուներ տարածաշրջանի կյանքում։ Ժամանակի ընթացքում նրա դիրքն ու ռազմավարական նշանակությունը նպաստեցին ամրոցի զարգացմանը։ Բարձունքի վրա կառուցված պաշտպանական համակարգը հարմարեցված էր լանջերի ու ժայռերի բնական ձևերին։ Քարե պատերը, աշտարակները և ամրացված հատվածները ստեղծում էին պաշտպանական գոտի, որտեղից հնարավոր էր դիտարկել շրջակա տարածքը։</p>
+        <p>Բջնիի ամրոցը կապված է Պահլավունիների իշխանական տան պատմության հետ։ Ամրոցի վերակառուցումն ու զարգացումը ցույց են տալիս, թե ինչպես էր իշխանական կենտրոնը օգտագործում բնական ռելիեֆը՝ պաշտպանությունն ուժեղացնելու համար։ Ամրոցը միայն ռազմական կառույց չէր. այն նաև իշխանության ներկայության նշան էր։ Նրա բարձր դիրքը տեսանելի էր շրջակա տարածքից և ընդգծում էր Բջնիի կարևորությունը։</p>
+        <p>Բջնիի պատմության մեջ առանձնահատուկ տեղ ունի 1031 թվականին կառուցված Սուրբ Աստվածածին եկեղեցին։ Գրիգոր Մագիստրոս Պահլավունու հովանավորությամբ կառուցված եկեղեցին դարձավ հոգևոր կյանքի կարևոր կենտրոն։ Եկեղեցու ճարտարապետությունը, քարե մանրամասները և պահպանված վիմագրությունները մեզ հիշեցնում են միջնադարյան վարպետների աշխատանքը։ Քարը այստեղ պարզապես շինանյութ չէ. այն պատմության պահպանման միջոց է։</p>
+        <p>Եկեղեցու և ամրոցի կողք կողքի գոյությունը Բջնիի պատմությանը տալիս է երկու ուղղություն։ Ամրոցը ներկայացնում է պաշտպանությունն ու իշխանական կյանքը, իսկ եկեղեցին՝ հավատքը, կրթությունն ու հոգևոր մշակույթը։ Այս երկու կենտրոնների շուրջ ձևավորվել է բնակավայրի պատմական ինքնությունը։ Հետագա դարերում Բջնիում շարունակվել է ձեռագրերի ընդօրինակման և հոգևոր գործունեության ավանդույթը։</p>
+        <p>Դարերի ընթացքում բնակավայրն անցել է փոփոխությունների միջով։ Պաշտպանական կառույցների որոշ հատվածներ ավերվել են, մյուսները պահպանվել են որպես հուշարձաններ։ Ամրոցի տարածքում իրականացված ուսումնասիրություններն ու պեղումները բացահայտել են կառույցների տարբեր շերտեր և օգնել հասկանալ, թե ինչպես է զարգացել այս պատմական կենտրոնը։ Այսօր պահպանված քարերը ամբողջական շինություն չեն կազմում, բայց դրանց դիրքը, ձևը և կապը լանդշաֆտի հետ շարունակում են պատմել անցյալի մասին։</p>
+        <p>Բջնիի կիրճը պատմության անբաժան մասն է։ Հրազդան գետը, ժայռերը և բուսականությամբ ծածկված լանջերը ստեղծում են միջավայր, որի մեջ տեղավորվել են ամրոցը, եկեղեցին և գյուղը։ Տարվա եղանակների փոփոխությունը փոխում է կիրճի գույները՝ գարնան թարմ երանգներից մինչև աշնան տաք ոսկեգույն տեսարանները։ Այդ փոփոխվող բնապատկերը պատմական հուշարձաններին տալիս է կենդանի ֆոն։</p>
+        <p>Բջնի այցելող մարդը կարող է պատմությունը բացահայտել քայլ առ քայլ։ Գյուղի ճանապարհներից դեպի ամրոցի բարձունք բարձրանալիս բացվում են կիրճի տեսարանները։ Հուշարձանների մոտ կարելի է նկատել քարերի կառուցվածքը, եկեղեցու մանրամասները և տարածքի բնական պաշտպանական դիրքը։ Այդ դիտարկումները այցը դարձնում են ոչ միայն զբոսանք, այլև փոքրիկ ուսումնասիրություն։</p>
+        <p>Բջնիի պատմությունը շարունակվում է նաև այսօր՝ պահպանության, ուսումնասիրության և այցելուների հետաքրքրության միջոցով։ Հուշարձաններին հարգանքով վերաբերվելը, աղբ չթողնելը և անվտանգ արահետներով քայլելը օգնում են պահպանել այս ժառանգությունը։ Բջնիի կիրճը հիշեցնում է, որ պատմական վայրերը միայն անցյալին չեն պատկանում. դրանք մեր ներկայի մշակութային հիշողության մաս են և պետք է փոխանցվեն հաջորդ սերունդներին։</p>
+      </div>
+    </section>
+\n    <section class="gallery section" id="gallery">
+      <div class="section-kicker">04 — ՊԱՏԿԵՐԱՍՐԱՀ</div>
+      <div class="gallery-title"><h2>Բջնին՝ <em>տարբեր հայացքներով</em></h2><p>Քարե աշտարակներ, հին եկեղեցի և կիրճի լանդշաֆտ։</p></div>
+      <div class="gallery-grid">
+        <figure class="gallery-large"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_14.jpg?width=1600" data-fallbacks="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_01.jpg?width=1400|https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_village%2C_Armenia.jpg?width=1400" alt="Բջնիի ամրոցի ընդհանուր տեսքը" loading="lazy" referrerpolicy="no-referrer"><figcaption>Ամրոցը՝ ժայռի գագաթին</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Holy_Mother_of_God_Church%2C_Bjni%2C_Armenia_101.jpg?width=1400" data-fallbacks="https://commons.wikimedia.org/wiki/Special:FilePath/Holy_Mother_of_God_Church%2C_Bjni%2C_Armenia_93.jpg?width=1200|https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_village%2C_Armenia.jpg?width=1400" alt="Սուրբ Աստվածածին եկեղեցի" loading="lazy" referrerpolicy="no-referrer"><figcaption>Սուրբ Աստվածածին</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_overview.JPG?width=1600" data-fallbacks="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_village%2C_Armenia.jpg?width=1400|https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_01.jpg?width=1400" alt="Բջնիի համայնապատկեր" loading="lazy" referrerpolicy="no-referrer"><figcaption>Բջնիի համայնապատկերը</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_01.jpg?width=1400" data-fallbacks="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_Fortress_%28general_view%29_14.jpg?width=1600|https://commons.wikimedia.org/wiki/Special:FilePath/Bjni_village%2C_Armenia.jpg?width=1400" alt="Ամրոցի պարիսպների հատված" loading="lazy" referrerpolicy="no-referrer"><figcaption>Ամրոցի քարե պատերը</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bjni%2C_S._Sargis_church_-_panoramio.jpg?width=1200" data-fallbacks="https://commons.wikimedia.org/wiki/Special:FilePath/Holy_Mother_of_God_Church%2C_Bjni%2C_Armenia_93.jpg?width=1200|https://commons.wikimedia.org/wiki/Special:FilePath/Holy_Mother_of_God_Church%2C_Bjni%2C_Armenia_101.jpg?width=1400" alt="Սուրբ Սարգիս եկեղեցի Բջնիում" loading="lazy" referrerpolicy="no-referrer"><figcaption>Սուրբ Սարգիս եկեղեցի</figcaption></figure>
+      </div>
+      <p class="photo-note">Լուսանկարները Wikimedia Commons-ից են։ Եթե որևէ ֆայլ ժամանակավորապես չբացվի, էջը հերթով կփորձի պահուստային լուսանկարներ։ Պատկերների բեռնման համար անհրաժեշտ է ինտերնետ կապ։</p>
+    </section>
+
+    <section class="visit section" id="visit">
+      <div class="visit-inner">
+        <p class="eyebrow light">05 — ԲԱՑԱՀԱՅՏԻՐ ԻՆՔԴ</p>
+        <h2>Պատմությունը սպասում է<br><em>քո այցին</em></h2>
+        <p>Բջնի այցելելիս հարգանքով վերաբերվիր պատմական հուշարձաններին, մի թող աղբ և հետևիր տարածքում տեղադրված ցուցումներին։ Կիրճի ժայռոտ հատվածներում քայլիր զգուշությամբ և ընտրիր անվտանգ արահետները։ Նախապես պլանավորիր այցը, հարմար կոշիկ հագիր և ժամանակ թող թե՛ ամրոցի, թե՛ եկեղեցու տարածքը հանգիստ ուսումնասիրելու համար։</p>
+        <p>Բջնիի այցը կարելի է դարձնել փոքրիկ ճանապարհորդություն ժամանակի միջով. սկսիր գյուղից, բարձրացիր դեպի պատմական հուշարձանները, դիտիր կիրճի համայնապատկերը և վերջում մի պահ պարզապես լսիր գետի ձայնը։ Այդպես վայրը բացահայտվում է ոչ թե միայն լուսանկարներով, այլ ամբողջական զգացողությամբ։</p>
+        <a class="primary-btn light-btn" href="https://www.google.com/maps/search/?api=1&query=Bjni+Fortress+Armenia" target="_blank" rel="noopener">Գտնել Բջնին քարտեզում <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">Բ</span><span>ԲՋՆԻ <small>ԿԻՐՃԻ ՊԱՏՄՈՒԹՅՈՒՆԸ</small></span></a>
+    <p>Ստեղծված է Հայաստանի պատմամշակութային ժառանգությունը ճանաչելի դարձնելու համար։</p>
+    <div class="sources">
+      <strong>ՊԱՏՄԱԿԱՆ ԵՎ ԼՈՒՍԱՆԿԱՐԱՅԻՆ ԱՂԲՅՈՒՐՆԵՐ</strong>
+      <a href="https://armeniahiddengems.aua.am/hy/monument/bjni-fortress/" target="_blank" rel="noopener">Armenia Hidden Gems — Բջնիի ամրոց</a>
+      <a href="https://armeniahiddengems.aua.am/hy/monument/st-astvatsatsin-church/" target="_blank" rel="noopener">Armenia Hidden Gems — Սուրբ Աստվածածին</a>
+      <a href="https://www.armgeo.am/bjni_fortress/" target="_blank" rel="noopener">Armenian Geographic — Բջնիի ամրոց</a>
+      <a href="https://monuments.am/am/post/376" target="_blank" rel="noopener">Monuments.am — Բջնի</a>
+      <a href="https://commons.wikimedia.org/wiki/Category:Bjni" target="_blank" rel="noopener">Wikimedia Commons — Բջնիի լուսանկարներ</a>
+    </div>
+    <span class="copyright">© 2026 · Բջնիի կիրճ</span>
+  </footer>
+  <button id="toTop" aria-label="Վերադառնալ վերև">↑</button>
+  <script>
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.getElementById("nav");
+const toTop = document.getElementById("toTop");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+nav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+window.addEventListener("scroll", () => {
+  toTop.classList.toggle("visible", window.scrollY > 450);
+});
+
+toTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Reveal sections gently as they enter the viewport.
+const revealTargets = document.querySelectorAll(".timeline-item, .feature-grid, .church-copy, .river-copy, .gallery-grid figure");
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealTargets.forEach(item => {
+    item.classList.add("reveal");
+    observer.observe(item);
+  });
+}
+
+
+// Resilient remote image loading: try alternate Commons photos, then a designed placeholder.
+document.querySelectorAll("img[data-fallbacks]").forEach(img => {
+  const alternatives = (img.dataset.fallbacks || "").split("|").filter(Boolean);
+  let attempt = 0;
+  img.addEventListener("error", () => {
+    if (attempt < alternatives.length) {
+      img.src = alternatives[attempt++];
+      return;
+    }
+    const label = (img.alt || "Բջնի").replace(/[<>&"]/g, "");
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#263f32"/><stop offset="1" stop-color="#b88b55"/></linearGradient></defs><rect width="900" height="600" fill="url(#g)"/><path d="M0 460L180 270 310 390 490 190 700 390 900 240V600H0Z" fill="#d8c29a" opacity=".28"/><text x="50%" y="52%" text-anchor="middle" fill="#fff8e9" font-family="serif" font-size="42">ԲՋՆԻ</text><text x="50%" y="62%" text-anchor="middle" fill="#fff8e9" font-family="sans-serif" font-size="20">${label}</text></svg>`;
+    img.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    img.classList.add("image-placeholder");
+  });
+});
+
+</script>
+</body>
+</html>
